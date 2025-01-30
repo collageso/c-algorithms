@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 /* Merge Sort
  *
  * worst_case: nlogn
@@ -5,9 +7,7 @@
  * best_case: nlogn
  */
 
-#include <stdlib.h>
-
-void merge(int* arr, int left, int mid, int right)
+void merge(int* arr, size_t left, size_t mid, size_t right)
 {
     int i, j;
     int n1 = mid - left + 1;
@@ -16,11 +16,11 @@ void merge(int* arr, int left, int mid, int right)
     int* L = (int*)malloc((n1 + 1) * sizeof(int));
     int* R = (int*)malloc((n2 + 1) * sizeof(int));
 
-    for (i = 0; i < n1; i++) {
+    for (i = 0; i < n1; ++i) {
         L[i] = arr[left + i];
     }
 
-    for (j = 0; j < n2; j++) {
+    for (j = 0; j < n2; ++j) {
         R[j] = arr[mid + 1 + j];
     }
 
@@ -44,7 +44,7 @@ void merge(int* arr, int left, int mid, int right)
     free(R);
 }
 
-void merge_sort(int* arr, int left, int right)
+void merge_sort(int* arr, size_t left, size_t right)
 {
     if (left >= right) {
         return;

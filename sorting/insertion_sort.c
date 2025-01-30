@@ -1,3 +1,5 @@
+#include <stddef.h>
+
 /* Insertion Sort
  *
  * worst_case: n^2
@@ -5,9 +7,9 @@
  * best_case: n
  */
 
-void insertion_sort(int* arr, int size)
+void insertion_sort(int* arr, size_t size)
 {
-    for (int i = 1; i < size; i++) {
+    for (size_t i = 1; i < size; ++i) {
         int insertion_target = arr[i];
         int j = i - 1;
 
@@ -16,8 +18,6 @@ void insertion_sort(int* arr, int size)
             j--;
         }
 
-        if (j + 1 != i) {
-            arr[j + 1] = insertion_target;
-        }
+        arr[j + 1] = insertion_target;
     }
 }
