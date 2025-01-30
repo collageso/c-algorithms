@@ -1,5 +1,3 @@
-#include <stdlib.h>
-
 /* Merge Sort
  *
  * worst_case: nlogn
@@ -7,7 +5,9 @@
  * best_case: nlogn
  */
 
-void merge(int* arr, size_t left, size_t mid, size_t right)
+#include <stdlib.h>
+
+void merge(int* arr, int left, int mid, int right)
 {
     int i, j;
     int n1 = mid - left + 1;
@@ -44,7 +44,7 @@ void merge(int* arr, size_t left, size_t mid, size_t right)
     free(R);
 }
 
-void merge_sort(int* arr, size_t left, size_t right)
+void merge_sort(int* arr, int left, int right)
 {
     if (left >= right) {
         return;
